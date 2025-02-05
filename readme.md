@@ -4,7 +4,7 @@
 
 Этот скрипт удаляет все плохие комментарии (наказания) для указанного ученика.
 ```
-Bash
+
 from datacenter.models import Schoolkid, Chastisement
 
 def remove_chastisements(schoolkid_name):
@@ -20,7 +20,8 @@ return
 
 # Получаем все наказания для ученика и удаляем их
 ```
-Bash
+
+
 chastisements = Chastisement.objects.filter(schoolkid=schoolkid)
 chastisements.delete()
 print(f"Все наказания для ученика '{schoolkid.full_name}' были удалены.")
@@ -45,7 +46,8 @@ return
 
 # Получаем последний урок по предмету
 ```
-Bash
+
+
 last_lesson = Lesson.objects.filter(
 year_of_study=schoolkid.year_of_study,
 group_letter=schoolkid.group_letter,
@@ -59,7 +61,8 @@ return
 
 # Создаем похвалу
 ```
-Bash
+
+
 Commendation.objects.create(
 text="Молодец! Отлично справился с заданием.",
 created=last_lesson.date,
