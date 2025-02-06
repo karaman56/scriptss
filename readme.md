@@ -16,8 +16,8 @@ def remove_chastisements(schoolkid_name):
         print(f"Ученик с именем '{schoolkid_name}' не найден.")
         return
     except Schoolkid.MultipleObjectsReturned:
-    print(f"Найдено несколько учеников с именем '{schoolkid_name}'. Пожалуйста, уточните запрос.")
-    return
+        print(f"Найдено несколько учеников с именем '{schoolkid_name}'. Пожалуйста, уточните запрос.")
+        return
 ```
 
 # Получаем все наказания для ученика и удаляем их
@@ -76,12 +76,12 @@ def change_marks(schoolkid_name):
         print(f"Найдено несколько учеников с именем '{schoolkid_name}'. Пожалуйста, уточните запрос.")
         return
 
-updated_count = Mark.objects.filter(schoolkid=schoolkid, value__in=[2, 3]).update(value=5)
+    updated_count = Mark.objects.filter(schoolkid=schoolkid, value__in=[2, 3]).update(value=5)
 
-if updated_count:
-    print(f"Оценки ученика '{schoolkid.full_name}' изменены на пятерки.")
-else:
-    print(f"У ученика '{schoolkid.full_name}' нет оценок, которые можно было бы изменить.")
+    if updated_count:
+        print(f"Оценки ученика '{schoolkid.full_name}' изменены на пятерки.")
+    else:
+        print(f"У ученика '{schoolkid.full_name}' нет оценок, которые можно было бы изменить.")
 change_marks('Фролов Иван')
 ```
 
