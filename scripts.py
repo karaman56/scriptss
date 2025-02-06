@@ -1,4 +1,4 @@
-from datacenter.models import Schoolkid, Lesson, Commendation
+from datacenter.models import Schoolkid, Chastisement, Mark, Commendation, Lesson
 
 def create_commendation(schoolkid_name, subject_title):
     try:
