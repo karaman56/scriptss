@@ -16,11 +16,10 @@ def get_schoolkid(schoolkid_name):
 def create_commendation(schoolkid_name, subject_title):
     """Создает похвалу для ученика по указанному предмету."""
     schoolkid = get_schoolkid(schoolkid_name)
-        last_lesson = Lesson.objects.filter(
+    last_lesson = Lesson.objects.filter(
         year_of_study=schoolkid.year_of_study,
         group_letter=schoolkid.group_letter,
-        subject__title=subject_title
-    ).order_by('-date').first()
+        subject__title=subject_title).order_by('-date').first()
     if not last_lesson:
         print(f"У ученика '{schoolkid.full_name}' нет уроков по предмету '{subject_title}'.")
         return
